@@ -29,12 +29,12 @@ def create_response_txt_files(source_folder, destination_folder):
             if filename.endswith('.txt'):
                 source_file_path = os.path.join(source_folder, filename)
                 destination_file_path = os.path.join(destination_folder, filename)
-                question = read_txt_content(source_file_path)
+                abstract = read_txt_content(source_file_path)
 
-                if question is not None:
+                if abstract is not None:
                     with open(destination_file_path, 'w') as dest_file:
-                        answer = get_gpt_response(question)
-                        dest_file.write(answer)
+                        results = get_gpt_response(abstract)
+                        dest_file.write(results)
 
                     print(f'Created modified {filename} in {destination_folder}')
     except Exception as e:
