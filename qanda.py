@@ -32,7 +32,7 @@ def create_response_txt_files(source_folder, combined_file_path):
                 if abstract is not None:
                     combined_content += get_gpt_response(abstract)
 
-        with open(combined_file_path, 'w') as combined_file:
+        with open(combined_file_path, 'a') as combined_file:
             combined_file.write(combined_content)
     except Exception as e:
         print(f'Error: {e}')
